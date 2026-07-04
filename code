@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HHS Divisions Flashcards • hhs-academy • Rebecca</title>
+<style>body{font-family:Arial;background:#f0f8ff;text-align:center;} .card{background:white;margin:20px auto;padding:30px;width:80%;max-width:600px;border-radius:15px;box-shadow:0 4px 20px rgba(0,0,0,0.1);cursor:pointer;} button{margin:10px;padding:10px 20px;font-size:16px;}</style>
+</head>
+<body>
+<h1>🧠 HHS Divisions Flashcards (Interactive) • Learn Everything from the Official Page</h1>
+<p>Click card to flip • Use buttons to navigate • Made for your hhs-academy repo</p>
+
+<div id="card" class="card" onclick="flip()">Click to flip → <span id="front">What does ACF stand for?</span><span id="back" style="display:none">Administration for Children and Families – helps children, families, and refugees with services and support.</span></div>
+
+<button onclick="prev()">← Previous</button>
+<button onclick="next()">Next →</button>
+<button onclick="score()">I Got It! 👍</button>
+<p>Progress: <span id="progress">1/18</span> • Score: <span id="score">0</span></p>
+
+<script>
+const cards = [
+  {q: "What is ACF?", a: "Administration for Children and Families – provides services to children, families, refugees, and disaster victims."},
+  {q: "What is ACL?", a: "Administration for Community Living – helps older adults and people with disabilities live independently."},
+  {q: "What is AHRQ?", a: "Agency for Healthcare Research and Quality – improves healthcare quality, safety, and efficiency."},
+  {q: "What is ARPA-H?", a: "Advanced Research Projects Agency for Health – drives breakthrough health innovations like DARPA does for defense."},
+  {q: "What is ASPR?", a: "Administration for Strategic Preparedness and Response – prepares for disasters, pandemics, and public health emergencies."},
+  {q: "What is ATSDR?", a: "Agency for Toxic Substances and Disease Registry – protects people from harmful substances and environmental hazards."},
+  {q: "What is CDC?", a: "Centers for Disease Control and Prevention – protects public health and prevents disease outbreaks."},
+  {q: "What is CMS?", a: "Centers for Medicare & Medicaid Services – runs Medicare and Medicaid programs."},
+  {q: "What is FDA?", a: "Food and Drug Administration – ensures safety of food, drugs, and medical devices."},
+  {q: "What is HRSA?", a: "Health Resources and Services Administration – improves access to healthcare in underserved areas."},
+  {q: "What is IHS?", a: "Indian Health Service – provides healthcare to American Indians and Alaska Natives."},
+  {q: "What is NIH?", a: "National Institutes of Health – leads medical research across the country."},
+  {q: "What is SAMHSA?", a: "Substance Abuse and Mental Health Services Administration – helps with mental health and substance use issues."},
+  // Add more from the page as needed
+];
+let current = 0;
+function flip() { document.getElementById('back').style.display = 'block'; }
+function next() { current = (current + 1) % cards.length; update(); }
+function prev() { current = (current - 1 + cards.length) % cards.length; update(); }
+function update() {
+  document.getElementById('front').innerHTML = cards[current].q;
+  document.getElementById('back').innerHTML = cards[current].a;
+  document.getElementById('back').style.display = 'none';
+  document.getElementById('progress').innerHTML = (current+1) + "/" + cards.length;
+}
+function score() { document.getElementById('score').innerHTML = parseInt(document.getElementById('score').innerHTML) + 1; next(); }
+update();
+</script>
+<p><a href="https://www.hhs.gov/about/organization/divisions/index.html">Official Source Page</a> • Add your Roach Roundup trackers here too!</p>
+</body>
+</html>
